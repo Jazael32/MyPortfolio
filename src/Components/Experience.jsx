@@ -1,13 +1,12 @@
-import { Box, Flex, HStack, Icon, Image, Spacer, Stack, Text, useMediaQuery, VStack } from '@chakra-ui/react'
-import { FaFacebookF, FaGoogle, FaPython } from 'react-icons/fa'
+import { Flex, Image,  Stack, Text, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 
-function Social() {
+function Experience() {
     const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)")
     return (
         <div>
         <Stack>
-        <Text fontSize="6xl" fontWeight="semibold" alignSelf="center">Skills</Text>
+        <Text id="Experience" fontSize="5xl" fontWeight="semibold" alignSelf="center">Skills</Text>
             <Flex direction="row" spacing="300px" p={isNotSmallerScreen ? "8" : "0" } alignSelf="center">
                 <Image mr={5} align="center" boxSize={isNotSmallerScreen ? "10rem" : "5rem" } src="Assets/Python.svg"></Image>
                 <Image mr={5} align="center" boxSize={isNotSmallerScreen ? "10rem" : "5rem" } src="Assets/Angular.svg"></Image>
@@ -24,4 +23,4 @@ function Social() {
     )
 }
 
-export default Social
+export default Experience

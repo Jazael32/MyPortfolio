@@ -1,50 +1,27 @@
-import React from 'react'
-import { useMediaQuery } from '@chakra-ui/media-query';
-import { Box, Flex, Heading, Text } from '@chakra-ui/layout';
-import Icon from '@chakra-ui/icon';
-import { DiCodeigniter, DiAndroid, DiWebplatform } from 'react-icons/di'
+import { Flex, Stack, useMediaQuery, Box, Text, Button, Image, Icon } from '@chakra-ui/react';
+import { FaHeart } from 'react-icons/fa';
+import React from 'react';
 
 function Profile() {
-    const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)");
-    return (
-        <Flex direction={isNotSmallerScreen ? "row" : "column"} w="100%"
-        maxWidth={{ base: "100vh", md: "130vh", lg: "130vh", xl: "130vh" }}>
-        <Box alignSelf="center" px="32" py="16">
-            <Heading fontWeight="extrabold" color="cyan.500" size="4xl">
-                2+
-            </Heading>
-            <Text fontSize="2xl" color="gray.400">Years of Experience</Text>
-        </Box>
-        <Box alignSelf="center" px="32" py="16">
-            <Text fontWeight="bold" fontSize="4xl">My Projects.</Text>
-            <Flex direction={isNotSmallerScreen ? "row" : "column"} mt={8} >
-                <Flex rounded="xl" direction="column" mt={4} bg="blue.400" h="30vh" w="30vh" justify="flex-end">
-                    <Icon color="white" p="4" as={DiAndroid} w="24" h="24" />
-                    <Text color="white" p="4" fontSize="xl" fontWeight="semibold">
-                        Android Apps
-                    </Text>
-                </Flex>
-                <Flex rounded="xl" direction="column" mt={4} ml={isNotSmallerScreen ? 4 : 0}
-                    bg="gray.100" h="30vh" w="30vh" justify="flex-end" _hover={{ bg: "teal.400", }}>
-                    <Icon color="black" p="4" as={DiCodeigniter} w="24" h="24" />
-                    <Text color="black" p="4" fontSize="xl" fontWeight="semibold">
-                        Flutter Apps
-                    </Text>
-                </Flex>
-                <Flex rounded="xl" direction="column" mt={4} ml={isNotSmallerScreen ? 4 : 0}
-                    bg="gray.100" h="30vh" w="30vh" justify="flex-end"
-                    _hover={{ bg: "green.400", }}
 
-                >
-                    <Icon as={DiWebplatform} p="4" w="24" h="24" color="black" />
-                    <Text color="black" p="4" fontSize="xl" fontWeight="semibold">
-                        Web Apps
-                    </Text>
-                </Flex>
+    const [isNotSmallerScreen] = useMediaQuery("(min-width:600px)")
+
+    return (
+        <Stack>
+            <Flex id="Profile" direction={isNotSmallerScreen ? "row" : "column"} spacing="200px" p={isNotSmallerScreen ? "32" : "0" } alignSelf="flex-start">
+                <Box mt={isNotSmallerScreen ? "0" : 16} align="flex-start">
+                    <Text fontSize="5xl" fontWeight="semibold">Hi, Im</Text>
+                    <Text fontSize="6xl" fontWeight="bold" bgGradient="linear(to-r, cyan.400, blue.500, purple.600)" bgClip="text">Martin J. Moreno</Text>
+                    <Text fontSize= {isNotSmallerScreen ? "3xl" : ""} fontWeight="bold">Full Stack developer, Experience with a few front end frameworks, and .Net Core, Laravel and Django for Backend.
+                    <br/>
+                    Feel free to send me a message. Also right now in love with React <Icon as={FaHeart}></Icon> </Text>
+                    <Button onClick={() => window.open("Assets/Jazael_cv.pdf", "_blank")} mt={8} colorScheme="blue">My Info</Button>
+                </Box>
+                <Image alignSelf="center" mt={isNotSmallerScreen ? "0" : "12"} mb={isNotSmallerScreen ? "0" : "12"} borderRadius="full" backgroundColor="transparent" 
+                boxShadow="lg" boxSize="300px" src="/Assets/MyFoto.jpg"/>
             </Flex>
 
-        </Box>
-    </Flex>
+        </Stack>
     )
 }
 
